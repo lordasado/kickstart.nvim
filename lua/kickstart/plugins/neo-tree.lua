@@ -10,6 +10,7 @@ return {
     'MunifTanjim/nui.nvim',
   },
   lazy = false,
+  use_libuv_file_watcher = true,
   keys = {
     { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
   },
