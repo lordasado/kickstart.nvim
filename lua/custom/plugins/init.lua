@@ -21,12 +21,4 @@ return {
     'Civitasv/cmake-tools.nvim',
     opts = {},
   },
-
-  {
-    'neovim/nvim-lspconfig',
-    event = 'BufReadPre',
-    config = function()
-      require('lspconfig').clangd.setup {}
-    end,
-  },
 }
