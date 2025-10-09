@@ -691,6 +691,7 @@ require('lazy').setup({
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
         --
+        biome = {},
 
         lua_ls = {
           -- cmd = { ... },
@@ -775,8 +776,18 @@ require('lazy').setup({
           }
         end
       end,
+      formatters = {
+        biome = {
+          require_cwd = true,
+        },
+      },
       formatters_by_ft = {
         lua = { 'stylua' },
+        astro = { 'biome' },
+        javascript = { 'biome' },
+        javascriptreact = { 'biome' },
+        typescript = { 'biome' },
+        typescriptreact = { 'biome' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
@@ -844,16 +855,16 @@ require('lazy').setup({
         -- <c-k>: Toggle signature help
         --
         -- See :h blink-cmp-config-keymap for defining your own keymap
-        ['<Tab>'] = {
-          'snippet_forward',
-          function() -- sidekick next edit suggestion
-            return require('sidekick').nes_jump_or_apply()
-          end,
-          function() -- if you are using Neovim's native inline completions
-            return vim.lsp.inline_completion.get()
-          end,
-          'fallback',
-        },
+        -- ['<Tab>'] = {
+        --   'snippet_forward',
+        --   function() -- sidekick next edit suggestion
+        --     return require('sidekick').nes_jump_or_apply()
+        --   end,
+        --   -- function() -- if you are using Neovim's native inline completions
+        --   --   return vim.lsp.inline_completion.get()
+        --   -- end,
+        --   'fallback',
+        -- },
         preset = 'default',
 
         -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
@@ -978,7 +989,7 @@ require('lazy').setup({
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
+      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'astro' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
