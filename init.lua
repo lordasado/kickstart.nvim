@@ -84,6 +84,20 @@ I hope you enjoy your Neovim journey,
 P.S. You can delete this when you're done too. It's your config now! :)
 --]]
 
+vim.opt.title = true
+local function update_title()
+  local dir = vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
+  local bufname = vim.api.nvim_buf_get_name(0)
+  local filename = vim.fn.fnamemodify(bufname ~= '' and bufname or '', ':t')
+  vim.o.titlestring = dir .. (filename ~= '' and ': ' .. filename or '')
+end
+
+vim.api.nvim_create_autocmd({ 'DirChanged', 'BufEnter' }, {
+  callback = update_title,
+})
+
+-- Initial call to set the title on startup
+update_title()
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
