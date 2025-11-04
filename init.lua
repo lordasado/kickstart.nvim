@@ -136,7 +136,10 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 
 -- Enable break indent
+vim.opt.wrap = true
+vim.o.linebreak = true
 vim.o.breakindent = true
+vim.o.breakindentopt = 'shift:2,sbr'
 
 -- Save undo history
 vim.o.undofile = true
