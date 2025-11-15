@@ -235,4 +235,24 @@ return {
       lsp_wide = false, -- track errors workspace-wide(get ALL lsp errors)
     },
   },
+  {
+    'catgoose/nvim-colorizer.lua',
+    event = 'BufReadPre',
+    opts = { -- set to setup table
+      user_default_options = {
+        oklch_fn = true,
+        rgb_fn = true,
+        hsl_fn = true,
+        -- Highlighting mode.  'background'|'foreground'|'virtualtext'
+        mode = 'virtualtext',
+        virtualtext = '■',
+        virtualtext_inline = 'before',
+        virtualtext_mode = 'foreground',
+        tailwind = true,
+        tailwind_opts = { -- Options for highlighting tailwind names
+          update_names = true, -- When using tailwind = 'both', update tailwind names from LSP results.  See tailwind section
+        },
+      },
+    },
+  },
 }
