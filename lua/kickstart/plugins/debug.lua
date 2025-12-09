@@ -27,42 +27,114 @@ return {
   keys = {
     -- Basic debugging keymaps, feel free to change to your liking!
     {
-      '<F5>',
-      function()
-        require('dap').continue()
-      end,
-      desc = 'Debug: Start/Continue',
+      '<leader>d',
+      group = 'Debugger',
+      name = '+Debug: Debugger',
+      nowait = true,
+      remap = false,
     },
     {
-      '<F1>',
-      function()
-        require('dap').step_into()
-      end,
-      desc = 'Debug: Step Into',
-    },
-    {
-      '<F2>',
-      function()
-        require('dap').step_over()
-      end,
-      desc = 'Debug: Step Over',
-    },
-    {
-      '<F3>',
-      function()
-        require('dap').step_out()
-      end,
-      desc = 'Debug: Step Out',
-    },
-    {
-      '<leader>b',
+      '<leader>db',
       function()
         require('dap').toggle_breakpoint()
       end,
       desc = 'Debug: Toggle Breakpoint',
     },
+
     {
-      '<leader>B',
+      '<leader>dc',
+      function()
+        require('dap').continue()
+      end,
+      desc = 'Debug: Start/Continue',
+    },
+
+    {
+      '<leader>dC',
+      function()
+        require('dap').run_to_cursor()
+      end,
+      desc = 'Debug: Run to Cursor',
+    },
+
+    {
+      '<leader>di',
+      function()
+        require('dap').step_into()
+      end,
+      desc = 'Debug: Step Into',
+      nowait = true,
+      remap = false,
+    },
+    {
+      '<leader>do',
+      function()
+        require('dap').step_over()
+      end,
+      desc = 'Debug: Step Over',
+      nowait = true,
+      remap = false,
+    },
+    {
+      '<leader>du',
+      function()
+        require('dap').step_out()
+      end,
+      desc = 'Debug: Step Out',
+      nowait = true,
+      remap = false,
+    },
+    {
+      '<leader>dr',
+      function()
+        require('dap').repl.open()
+      end,
+      desc = 'Debug: Open REPL',
+      nowait = true,
+      remap = false,
+    },
+    {
+      '<leader>dl',
+      function()
+        require('dap').run_last()
+      end,
+      desc = 'Debug: Run Last',
+      nowait = true,
+      remap = false,
+    },
+
+    {
+      '<leader>dq',
+      function()
+        require('dap').terminate()
+        require('dapui').close()
+        require('nvim-dap-virtual-text').toggle()
+      end,
+      desc = 'Debug: Terminate',
+      nowait = true,
+      remap = false,
+    },
+
+    {
+      '<leader>dB',
+      function()
+        require('dap').list_breakpoints()
+      end,
+      desc = 'Debug: List Breakpoints',
+      nowait = true,
+      remap = false,
+    },
+    {
+      '<leader>de',
+      function()
+        require('dap').set_exception_breakpoints { 'all' }
+      end,
+      desc = 'Debug: Set Exception Breakpoints',
+      nowait = true,
+      remap = false,
+    },
+    {
+      '<leader>ds',
       function()
         require('dap').set_breakpoint(vim.fn.input 'Breakpoint condition: ')
       end,
@@ -70,7 +142,7 @@ return {
     },
     -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
     {
-      '<F7>',
+      '<leader>dU',
       function()
         require('dapui').toggle()
       end,
