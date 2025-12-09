@@ -21,6 +21,8 @@ return {
     'mason-org/mason.nvim',
     'jay-babu/mason-nvim-dap.nvim',
 
+    -- Add virtual text support for DAP
+    'theHamsta/nvim-dap-virtual-text',
   },
   keys = {
     -- Basic debugging keymaps, feel free to change to your liking!
@@ -78,6 +80,10 @@ return {
   config = function()
     local dap = require 'dap'
     local dapui = require 'dapui'
+    local dap_virtual_text = require 'nvim-dap-virtual-text'
+
+    -- Dap Virtual Text
+    dap_virtual_text.setup()
 
     require('mason-nvim-dap').setup {
       -- Makes a best effort to setup the various debuggers with
@@ -92,6 +98,7 @@ return {
       -- online, please don't ask me how to install them :)
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
+        'codelldb',
       },
     }
 
