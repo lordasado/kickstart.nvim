@@ -326,7 +326,11 @@ return {
   {
     'chrisgrieser/nvim-origami',
     event = 'VeryLazy',
-    opts = {}, -- needed even when using default config
+    opts = {
+      foldKeymaps = {
+        setup = false, -- modifies `h`, `l`, `^`, and `$`
+      },
+    }, -- needed even when using default config
 
     -- recommended: disable vim's auto-folding
     init = function()
