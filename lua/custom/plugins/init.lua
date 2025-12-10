@@ -342,6 +342,7 @@ return {
           template = ' %d',
         },
       },
+      gitsignsCount = true,
     }, -- needed even when using default config
 
     -- recommended: disable vim's auto-folding
@@ -349,36 +350,58 @@ return {
       vim.opt.foldlevel = 99
       vim.opt.foldlevelstart = 99
 
-      local fold_util = require 'utils.code_folds'
+      -- local fold_util = require 'utils.code_folds'
+      --
+      -- vim.api.nvim_create_autocmd({ 'TextChanged', 'InsertLeave', 'LspAttach' }, {
+      --   callback = function(opts)
+      --     fold_util.update_ranges(opts.buf)
+      --   end,
+      -- })
 
-      vim.api.nvim_create_autocmd({ 'TextChanged', 'InsertLeave', 'LspAttach' }, {
-        callback = function(opts)
-          fold_util.update_ranges(opts.buf)
+      -- local last_row = nil
+      -- vim.api.nvim_create_autocmd('CursorMoved', {
+      --   callback = function(opts)
+      --     local row = vim.api.nvim_win_get_cursor(0)[1]
+      --     if row ~= last_row then
+      --       last_row = row
+      --
+      --       fold_util.update_current_fold(row, opts.buf)
+      --     end
+      --   end,
+      -- })
+      --
+      -- vim.api.nvim_create_autocmd({ 'BufUnload', 'BufWipeout' }, {
+      --   callback = function(opts)
+      --     fold_util.clear(opts.buf)
+      --   end,
+      -- })
+
+      -- vim.opt.statuscolumn = '%!v:lua.StatusCol()'
+      -- vim.opt.statuscolumn = [[%s%=%{v:lua.require'utils.code_folds'.statuscol_fold()}%l  ]]
+      -- function _G.StatusCol()
+      --   return fold_util.statuscol()
+      -- end
+    end,
+  },
+  {
+    'stevearc/aerial.nvim',
+    opts = {},
+    -- Optional dependencies
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'nvim-tree/nvim-web-devicons',
+    },
+    config = function()
+      require('aerial').setup {
+        -- optionally use on_attach to set keymaps when aerial has attached to a buffer
+        on_attach = function(bufnr)
+          -- Jump forwards/backwards with '{' and '}'
+          vim.keymap.set('n', '{', '<cmd>AerialPrev<CR>', { buffer = bufnr })
+          vim.keymap.set('n', '}', '<cmd>AerialNext<CR>', { buffer = bufnr })
         end,
-      })
-
-      local last_row = nil
-      vim.api.nvim_create_autocmd('CursorMoved', {
-        callback = function(opts)
-          local row = vim.api.nvim_win_get_cursor(0)[1]
-          if row ~= last_row then
-            last_row = row
-
-            fold_util.update_current_fold(row, opts.buf)
-          end
-        end,
-      })
-
-      vim.api.nvim_create_autocmd({ 'BufUnload', 'BufWipeout' }, {
-        callback = function(opts)
-          fold_util.clear(opts.buf)
-        end,
-      })
-
-      vim.opt.statuscolumn = '%!v:lua.StatusCol()'
-      function _G.StatusCol()
-        return fold_util.statuscol()
-      end
+      }
+      -- You probably also want to set a keymap to toggle aerial
+      vim.keymap.set('n', '<leader>A', '<cmd>AerialToggle!<CR>')
     end,
   },
 }
