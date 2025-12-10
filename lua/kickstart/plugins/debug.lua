@@ -146,7 +146,7 @@ return {
       function()
         require('dapui').toggle()
       end,
-      desc = 'Debug: See last session result.',
+      desc = 'Debug: See last session result',
     },
   },
   config = function()
@@ -197,8 +197,8 @@ return {
     }
 
     -- Change breakpoint icons
-    vim.api.nvim_set_hl(0, 'DapBreak', { fg = '#e51400' })
-    vim.api.nvim_set_hl(0, 'DapStop', { fg = '#ffcc00' })
+    vim.api.nvim_set_hl(0, 'DapBreak', { fg = '#f38ba8' })
+    vim.api.nvim_set_hl(0, 'DapStop', { fg = '#f9e2af' })
     local breakpoint_icons = vim.g.have_nerd_font
         and { Breakpoint = '', BreakpointCondition = '', BreakpointRejected = '', LogPoint = '', Stopped = '' }
       or { Breakpoint = '●', BreakpointCondition = '⊜', BreakpointRejected = '⊘', LogPoint = '◆', Stopped = '⭔' }
