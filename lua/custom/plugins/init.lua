@@ -4,6 +4,13 @@
 -- See the kickstart.nvim README for more information
 return {
   {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      require('lualine').setup {}
+    end,
+  },
+  {
     'OXY2DEV/markview.nvim',
     lazy = false,
 
