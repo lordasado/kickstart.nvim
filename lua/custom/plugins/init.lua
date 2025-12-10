@@ -266,6 +266,13 @@ return {
     event = 'VeryLazy',
     ---@type Flash.Config
     opts = {
+      label = {
+        rainbow = {
+          enabled = true,
+          -- number between 1 and 9
+          shade = 3,
+        },
+      },
       modes = {
         search = {
           enabled = true,
