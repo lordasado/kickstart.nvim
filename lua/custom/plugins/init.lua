@@ -435,7 +435,7 @@ return {
     config = function()
       require('aerial').setup {
         layout = {
-          default_direction = 'float',
+          default_direction = 'prefer_left',
         },
         close_on_select = true,
         float = {
@@ -443,7 +443,11 @@ return {
         },
         focus_on_open = true,
         nav = {
+          autojump = true,
           preview = true,
+          keymaps = {
+            ['q'] = 'actions.close',
+          },
         },
 
         -- optionally use on_attach to set keymaps when aerial has attached to a buffer
@@ -454,7 +458,9 @@ return {
         end,
       }
       -- You probably also want to set a keymap to toggle aerial
-      vim.keymap.set('n', '<leader>A', '<cmd>AerialToggle<CR>')
+      vim.keymap.set('n', '<leader>Aa', '<cmd>AerialNavToggle<CR>', { desc = 'Aerial: Toggle Nav' })
+      vim.keymap.set('n', '<leader>Af', '<cmd>AerialToggle float<CR>', { desc = 'Aerial: Toggle [f]loat' })
+      vim.keymap.set('n', '<leader>Ae', '<cmd>AerialToggle!<CR>', { desc = 'Aerial: Toggle Sid[e]bar' })
     end,
   },
 }
