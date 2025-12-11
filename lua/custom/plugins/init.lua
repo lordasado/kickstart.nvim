@@ -302,6 +302,12 @@ return {
     ---@module 'overseer'
     ---@type overseer.SetupOpts
     opts = {},
+    config = function()
+      require('overseer').setup {
+        vim.keymap.set('n', '<leader>oo', '<cmd>OverseerRun<CR>', { desc = 'Overseer: Run' }),
+        vim.keymap.set('n', '<leader>ot', '<cmd>OverseerToggle<CR>', { desc = 'Overseer: [t]oggle' }),
+      }
+    end,
   },
   {
     'folke/flash.nvim',
