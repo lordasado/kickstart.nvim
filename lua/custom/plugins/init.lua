@@ -14,7 +14,7 @@ return {
         sections = {
           lualine_a = { 'mode' },
           lualine_b = { 'branch', 'diff', 'diagnostics' },
-          lualine_c = { { 'filetype', icon_only = true }, 'filename' },
+          lualine_c = { { 'filetype', icon_only = true }, 'filename', 'overseer' },
           lualine_y = { 'progress' },
           lualine_z = { 'location' },
 
@@ -304,6 +304,8 @@ return {
     opts = {},
     config = function()
       require('overseer').setup {
+        templates = { 'builtin' },
+
         vim.keymap.set('n', '<leader>oo', '<cmd>OverseerRun<CR>', { desc = 'Overseer: Run' }),
         vim.keymap.set('n', '<leader>ot', '<cmd>OverseerToggle<CR>', { desc = 'Overseer: [t]oggle' }),
       }
@@ -441,6 +443,7 @@ return {
         float = {
           relative = 'win',
         },
+        filter_kinds = false,
         focus_on_open = true,
         nav = {
           autojump = true,
