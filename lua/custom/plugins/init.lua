@@ -8,14 +8,16 @@ return {
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
       require('lualine').setup {
+        options = {
+          theme = 'tomorrow_night',
+        },
         sections = {
           lualine_a = { 'mode' },
           lualine_b = { 'branch', 'diff', 'diagnostics' },
-          lualine_c = { 'filetype', 'filename' },
+          lualine_c = { { 'filetype', icon_only = true }, 'filename' },
           lualine_y = { 'progress' },
           lualine_z = { 'location' },
 
-          -- Or you can customize it
           lualine_x = {
             {
               'aerial',
