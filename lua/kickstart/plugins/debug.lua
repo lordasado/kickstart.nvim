@@ -34,11 +34,11 @@ return {
       remap = false,
     },
     {
-      '<leader>db',
+      '<leader>dt',
       function()
         require('dap').toggle_breakpoint()
       end,
-      desc = 'Debug: Toggle Breakpoint',
+      desc = 'Debug: [t]oggle Breakpoint',
     },
 
     {
@@ -58,29 +58,38 @@ return {
     },
 
     {
-      '<leader>di',
-      function()
-        require('dap').step_into()
-      end,
-      desc = 'Debug: Step Into',
-      nowait = true,
-      remap = false,
-    },
-    {
-      '<leader>do',
+      '<leader>dj',
       function()
         require('dap').step_over()
       end,
-      desc = 'Debug: Step Over',
+      desc = 'Debug:  Step Over',
       nowait = true,
       remap = false,
     },
     {
-      '<leader>du',
+      '<leader>dk',
+      function()
+        require('dap').restart_frame()
+      end,
+      desc = 'Debug:  Restart Frame',
+      nowait = true,
+      remap = false,
+    },
+    {
+      '<leader>dl',
+      function()
+        require('dap').step_into()
+      end,
+      desc = 'Debug:  Step Into',
+      nowait = true,
+      remap = false,
+    },
+    {
+      '<leader>dh',
       function()
         require('dap').step_out()
       end,
-      desc = 'Debug: Step Out',
+      desc = 'Debug:  Step Out',
       nowait = true,
       remap = false,
     },
@@ -94,7 +103,16 @@ return {
       remap = false,
     },
     {
-      '<leader>dl',
+      '<leader>dd',
+      function()
+        require('dap').clear_breakpoints()
+      end,
+      desc = 'Debug: Clear Breakpoints',
+      nowait = true,
+      remap = false,
+    },
+    {
+      '<leader>dL',
       function()
         require('dap').run_last()
       end,
@@ -116,15 +134,6 @@ return {
     },
 
     {
-      '<leader>dB',
-      function()
-        require('dap').list_breakpoints()
-      end,
-      desc = 'Debug: List Breakpoints',
-      nowait = true,
-      remap = false,
-    },
-    {
       '<leader>de',
       function()
         require('dap').set_exception_breakpoints { 'all' }
@@ -132,13 +141,6 @@ return {
       desc = 'Debug: Set Exception Breakpoints',
       nowait = true,
       remap = false,
-    },
-    {
-      '<leader>ds',
-      function()
-        require('dap').set_breakpoint(vim.fn.input 'Breakpoint condition: ')
-      end,
-      desc = 'Debug: Set Breakpoint',
     },
     -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
     {
