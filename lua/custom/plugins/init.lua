@@ -56,6 +56,16 @@ return {
     -- dependencies = {
     --     "saghen/blink.cmp"
     -- },
+
+    -- config = function()
+    --   local presets = require('markview.presets').tables
+    --
+    --   require('markview').setup {
+    --     markdown = {
+    --       tables = presets.rounded,
+    --     },
+    --   }
+    -- end,
   },
   {
     'Civitasv/cmake-tools.nvim',
