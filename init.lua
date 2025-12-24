@@ -702,7 +702,7 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        -- clangd = {},
+        clangd = {},
         -- gopls = {},
         -- pyright = {},
         -- rust_analyzer = {},
@@ -904,6 +904,7 @@ require('lazy').setup({
         -- By default, you may press `<c-space>` to show the documentation.
         -- Optionally, set `auto_show = true` to show the documentation after a delay.
         documentation = { auto_show = true, auto_show_delay_ms = 500 },
+        -- ghost_text = { enabled = false },
       },
 
       sources = {
@@ -926,6 +927,26 @@ require('lazy').setup({
 
       -- Shows a signature help window while you type arguments for a function
       signature = { enabled = true },
+
+      config = function()
+        require('lualine').setup {
+          -- Hide copilot on completion
+          vim.api.nvim_create_autocmd('User', {
+            pattern = 'BlinkCmpMenuOpen',
+            callback = function()
+              require('copilot.suggestion').dismiss()
+              vim.b.copilot_suggestion_hidden = true
+            end,
+          }),
+
+          vim.api.nvim_create_autocmd('User', {
+            pattern = 'BlinkCmpMenuClose',
+            callback = function()
+              vim.b.copilot_suggestion_hidden = false
+            end,
+          }),
+        }
+      end,
     },
   },
 
