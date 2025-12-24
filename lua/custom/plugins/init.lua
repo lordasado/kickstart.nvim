@@ -313,10 +313,30 @@ return {
     opts = {},
     config = function()
       require('overseer').setup {
+        vim.api.nvim_create_user_command('OverseerRestartLast', function()
+          local overseer = require 'overseer'
+          local task_list = require 'overseer.task_list'
+          local tasks = overseer.list_tasks {
+            status = {
+              overseer.STATUS.SUCCESS,
+              overseer.STATUS.FAILURE,
+              overseer.STATUS.CANCELED,
+            },
+            sort = task_list.sort_finished_recently,
+          }
+          if vim.tbl_isempty(tasks) then
+            vim.notify('No tasks found', vim.log.levels.WARN)
+          else
+            local most_recent = tasks[1]
+            overseer.run_action(most_recent, 'restart')
+          end
+        end, {}),
+
         templates = { 'builtin' },
 
         vim.keymap.set('n', '<leader>oo', '<cmd>OverseerRun<CR>', { desc = 'Overseer: Run' }),
         vim.keymap.set('n', '<leader>ot', '<cmd>OverseerToggle<CR>', { desc = 'Overseer: [t]oggle' }),
+        vim.keymap.set('n', '<leader>ol', '<cmd>OverseerRestartLast<CR>', { desc = 'Overseer: Restart [l]ast Task' }),
       }
     end,
   },
