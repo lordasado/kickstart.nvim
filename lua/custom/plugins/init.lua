@@ -494,5 +494,19 @@ return {
       vim.keymap.set('n', '<leader>Af', '<cmd>AerialToggle float<CR>', { desc = 'Aerial: Toggle [f]loat' })
       vim.keymap.set('n', '<leader>Ae', '<cmd>AerialToggle!<CR>', { desc = 'Aerial: Toggle Sid[e]bar' })
     end,
+    {
+      '3ZsForInsomnia/token-count.nvim',
+      opts = {
+        model = 'gpt-5', -- Default model for counting
+      },
+      config = function()
+        require('token-count').setup {
+          vim.keymap.set('v', '<leader>tc', ':TokenCountSelection<CR>', {
+            desc = '[C]ount tokens in visual selection',
+            silent = true,
+          }),
+        }
+      end,
+    },
   },
 }
