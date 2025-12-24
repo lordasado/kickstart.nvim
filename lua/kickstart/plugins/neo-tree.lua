@@ -15,6 +15,12 @@ return {
     { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
   },
   opts = {
+    default_component_configs = {
+      modified = {
+        symbol = '[]',
+        highlight = 'NeoTreeModified',
+      },
+    },
     filesystem = {
       window = {
         mappings = {
