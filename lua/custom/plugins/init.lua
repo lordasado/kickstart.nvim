@@ -15,9 +15,6 @@ return {
           lualine_a = { 'mode' },
           lualine_b = { 'branch', 'diff', 'diagnostics' },
           lualine_c = { { 'filetype', icon_only = true }, 'filename', 'overseer' },
-          lualine_y = { 'progress' },
-          lualine_z = { 'location' },
-
           lualine_x = {
             {
               'aerial',
@@ -41,6 +38,8 @@ return {
               colored = true,
             },
           },
+          lualine_y = { 'progress', require('token-count.integrations.lualine').current_buffer },
+          lualine_z = { 'location' },
         },
       }
     end,
