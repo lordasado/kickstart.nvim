@@ -714,7 +714,7 @@ require('lazy').setup({
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
         --
-        biome = {},
+        oxfmt = {},
 
         lua_ls = {
           -- cmd = { ... },
@@ -800,17 +800,17 @@ require('lazy').setup({
         end
       end,
       formatters = {
-        biome = {
+        oxfmt = {
           require_cwd = true,
         },
       },
       formatters_by_ft = {
         lua = { 'stylua' },
-        astro = { 'biome' },
-        javascript = { 'biome' },
-        javascriptreact = { 'biome' },
-        typescript = { 'biome' },
-        typescriptreact = { 'biome' },
+        astro = { 'oxfmt' },
+        javascript = { 'oxfmt', 'oxlint' },
+        javascriptreact = { 'oxfmt', 'oxlint' },
+        typescript = { 'oxfmt', 'oxlint' },
+        typescriptreact = { 'oxfmt', 'oxlint' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
