@@ -808,10 +808,10 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         astro = { 'oxfmt' },
-        javascript = { 'oxfmt', 'oxlint' },
-        javascriptreact = { 'oxfmt', 'oxlint' },
-        typescript = { 'oxfmt', 'oxlint' },
-        typescriptreact = { 'oxfmt', 'oxlint' },
+        javascript = { 'oxfmt' },
+        javascriptreact = { 'oxfmt' },
+        typescript = { 'oxfmt' },
+        typescriptreact = { 'oxfmt' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
