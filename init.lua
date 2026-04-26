@@ -84,6 +84,7 @@ I hope you enjoy your Neovim journey,
 P.S. You can delete this when you're done too. It's your config now! :)
 --]]
 
+vim.opt.fillchars = { eob = ' ' }
 vim.opt.title = true
 local function update_title()
   local dir = vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
