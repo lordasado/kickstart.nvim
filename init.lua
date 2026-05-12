@@ -367,7 +367,7 @@ require('lazy').setup({
       -- Document existing key chains
       spec = {
         { '<leader>A', group = '[A]erial' },
-        { '<leader>a', group = 'Sidekick [a]I' },
+        { '<leader>a', group = 'Rust tools [a]' },
         { '<leader>s', group = '[s]earch' },
         { '<leader>t', group = '[t]oggle' },
         { '<leader>h', group = 'Git [h]unk', mode = { 'n', 'v' } },
@@ -1034,7 +1034,7 @@ require('lazy').setup({
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'astro' },
+      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'astro', 'rust', 'toml' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
