@@ -161,14 +161,14 @@ return {
 
       disable_phonk = false, -- skip phonk/overlay on "no errors"
       phonk_time = 1.0, -- seconds the phonk/image overlay stays
-      min_error_duration = 0.5, -- minimum seconds errors must exist before phonk triggers (0 = instant)
+      min_error_duration = 1.5, -- minimum seconds errors must exist before phonk triggers (0 = instant)
       block_input = false, -- block input during phonk/overlay
       dim_level = 20, -- phonk overlay darkness 0..100
 
       sound_enabled = true, -- enable sounds
       image_enabled = true, -- enable images (needs image.nvim)
 
-      boom_volume = 50, -- volume for vine boom sound (0..100)
+      boom_volume = 20, -- volume for vine boom sound (0..100)
       phonk_volume = 20, -- volume for phonk sound (0..100)
 
       boom_sound = nil, -- custom boom sound path (e.g., "~/sounds/boom.ogg")
