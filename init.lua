@@ -959,6 +959,7 @@ require('lazy').setup({
     'catppuccin/nvim',
     name = 'catppuccin',
     priority = 1000,
+    transparent_background = false,
   },
   {
     'olivercederborg/poimandres.nvim',
@@ -972,6 +973,7 @@ require('lazy').setup({
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     'bjarneo/pixel.nvim',
     name = 'pixel',
+    enabled = false,
     priority = 1000, -- Make sure to load this before all the other start plugins.
     config = function()
       ---diagnostic disable-next-line: missing-fields
