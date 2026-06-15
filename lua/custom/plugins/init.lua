@@ -13,7 +13,7 @@ return {
         },
         sections = {
           lualine_a = { 'mode' },
-          lualine_b = { { 'filename', separator = ' ' }, { 'filetype', icon_only = true, padding = 0 } },
+          lualine_b = { { 'filename', path = 4, symbols = { modified = '[]' }, separator = ' ' }, { 'filetype', icon_only = true, padding = 0 } },
           lualine_c = { 'diff', 'diagnostics', 'overseer' },
           lualine_x = {
             {
