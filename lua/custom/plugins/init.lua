@@ -10,6 +10,7 @@ return {
       require('lualine').setup {
         options = {
           theme = 'tomorrow_night',
+          globalstatus = true,
         },
         sections = {
           lualine_a = { 'mode' },
