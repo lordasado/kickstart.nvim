@@ -15,7 +15,7 @@ return {
         sections = {
           lualine_a = { 'mode' },
           lualine_b = { { 'filename', path = 4, symbols = { modified = '[]' }, separator = ' ' }, { 'filetype', icon_only = true, padding = 0 } },
-          lualine_c = { 'diff', 'diagnostics', 'overseer' },
+          lualine_c = { { 'diff', icon = { '󰊢', color = { fg = 'palegreen' } } }, 'diagnostics', 'overseer' },
           lualine_x = {
             {
               'aerial',
@@ -39,7 +39,7 @@ return {
               colored = true,
             },
           },
-          lualine_y = { 'searchcount', 'progress' },
+          lualine_y = { 'searchcount', { 'selectioncount', icons_enabled = true, icon = { '󰩭', color = { fg = 'plum' } } }, 'progress' },
           lualine_z = { 'location' },
         },
       }
