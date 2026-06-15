@@ -361,6 +361,7 @@ return {
       require('aerial').setup {
         layout = {
           default_direction = 'prefer_left',
+          min_width = 22,
         },
         close_on_select = true,
         float = {
