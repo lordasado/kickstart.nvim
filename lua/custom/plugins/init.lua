@@ -368,6 +368,7 @@ return {
         },
         filter_kinds = false,
         focus_on_open = true,
+        highlight_on_hover = true,
         nav = {
           autojump = true,
           preview = true,
