@@ -959,7 +959,17 @@ require('lazy').setup({
     'catppuccin/nvim',
     name = 'catppuccin',
     priority = 1000,
-    transparent_background = false,
+    integrations = {
+      aerial = true,
+      mason = true,
+      overseer = true,
+      trouble = true,
+      dadbod_ui = true,
+      which_key = true,
+    },
+    config = function()
+      vim.cmd.colorscheme 'catppuccin-mocha'
+    end,
   },
   {
     'olivercederborg/poimandres.nvim',
@@ -986,7 +996,7 @@ require('lazy').setup({
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'catppuccin'
+      vim.cmd.colorscheme 'catppuccin-mocha'
     end,
   },
 
