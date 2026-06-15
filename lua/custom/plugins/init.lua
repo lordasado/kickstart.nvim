@@ -9,7 +9,7 @@ return {
     config = function()
       require('lualine').setup {
         options = {
-          theme = 'tomorrow_night',
+          theme = 'iceberg_dark',
           globalstatus = true,
         },
         sections = {
