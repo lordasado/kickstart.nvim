@@ -38,7 +38,7 @@ return {
               colored = true,
             },
           },
-          lualine_y = { 'progress' },
+          lualine_y = { 'searchcount', 'progress' },
           lualine_z = { 'location' },
         },
       }
