@@ -385,6 +385,7 @@ return {
       }
       -- You probably also want to set a keymap to toggle aerial
       vim.keymap.set('n', '<leader>aa', '<cmd>AerialNavToggle<CR>', { desc = 'Aerial: Toggle Nav' })
+      vim.keymap.set('n', '<leader>aA', '<cmd>Telescope aerial<CR>', { desc = 'Aerial: Telescope Nav' })
       vim.keymap.set('n', '<leader>af', '<cmd>AerialToggle float<CR>', { desc = 'Aerial: Toggle [f]loat' })
       vim.keymap.set('n', '<leader>ae', '<cmd>AerialToggle!<CR>', { desc = 'Aerial: Toggle Sid[e]bar' })
     end,
