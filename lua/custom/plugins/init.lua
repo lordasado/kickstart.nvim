@@ -13,8 +13,8 @@ return {
         },
         sections = {
           lualine_a = { 'mode' },
-          lualine_b = { 'branch', 'diff', 'diagnostics' },
-          lualine_c = { { 'filetype', icon_only = true }, 'filename', 'overseer' },
+          lualine_b = { { 'filename', separator = ' ' }, { 'filetype', icon_only = true, padding = 0 } },
+          lualine_c = { 'diff', 'diagnostics', 'overseer' },
           lualine_x = {
             {
               'aerial',
