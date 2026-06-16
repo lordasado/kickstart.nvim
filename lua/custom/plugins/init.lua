@@ -429,5 +429,32 @@ return {
     lazy = false,
   },
   {
+    'nvim-neotest/neotest',
+    dependencies = {
+      'nvim-neotest/nvim-nio',
+      'nvim-lua/plenary.nvim',
+      'antoinemadec/FixCursorHold.nvim',
+      'nvim-treesitter/nvim-treesitter',
+    },
+    config = function()
+      vim.keymap.set('n', '<leader>tt', function()
+        require('neotest').run.run()
+      end, { desc = 'Neo[t]est: Run [t]est' })
+      vim.keymap.set('n', '<leader>tf', function()
+        require('neotest').run.run(vim.fn.expand '%')
+      end, { desc = 'Neo[t]est: Test Current [f]ile' })
+      vim.keymap.set('n', '<leader>tq', function()
+        require('neotest').run.stop()
+      end, { desc = 'Neo[t]est: [q] Stop Test' })
+      vim.keymap.set('n', '<leader>ta', function()
+        require('neotest').run.stop()
+      end, { desc = 'Neo[t]est: [a]ttach Test' })
+
+      require('neotest').setup {
+        adapters = {
+          require 'rustaceanvim.neotest',
+        },
+      }
+    end,
   },
 }
