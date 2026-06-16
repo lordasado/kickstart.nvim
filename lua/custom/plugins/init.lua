@@ -428,4 +428,11 @@ return {
     -- No need for lazy.nvim to lazy-load it.
     lazy = false,
   },
+  {
+    'cordx56/rustowl',
+    version = '*', -- Latest stable version
+    build = 'cargo install rustowl',
+    lazy = false, -- This plugin is already lazy
+    opts = {},
+  },
 }
