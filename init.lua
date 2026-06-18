@@ -366,9 +366,8 @@ require('lazy').setup({
 
       -- Document existing key chains
       spec = {
-        { '<leader>A', group = '[A]erial' },
-        { '<leader>a', group = 'Rust tools [a]' },
-        { '<leader>s', group = '[s]earch' },
+        { '<leader>a', group = '[A]erial' },
+        { '<leader>s', group = '[s]earch', icon = '' },
         { '<leader>t', group = '[t]oggle' },
         { '<leader>h', group = 'Git [h]unk', mode = { 'n', 'v' } },
         { '<leader>d', group = 'Debugger' },
