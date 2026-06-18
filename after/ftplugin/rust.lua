@@ -30,7 +30,7 @@ vim.keymap.set('n', '<leader>rr', function()
 end, { silent = true, buffer = bufnr, desc = '[r]unnables' })
 vim.keymap.set('n', '<leader>rR', function()
   vim.cmd.RustLsp 'run'
-end, { silent = true, buffer = bufnr, desc = '[R]un Cursor Target' })
+end, { silent = true, buffer = bufnr, desc = '[R]un Last Target' })
 vim.keymap.set('n', '<leader>rt', function()
   vim.cmd.RustLsp 'testables'
 end, { silent = true, buffer = bufnr, desc = '[t]estables' })
