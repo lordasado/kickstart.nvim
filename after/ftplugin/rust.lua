@@ -26,14 +26,14 @@ vim.keymap.set('n', '<leader>rD', function()
   vim.cmd.RustLsp 'debug'
 end, { silent = true, buffer = bufnr, desc = '[D]ebug Cursor Target' })
 vim.keymap.set('n', '<leader>rr', function()
-  vim.cmd.RustLsp 'runnables'
-end, { silent = true, buffer = bufnr, desc = '[r]unnables' })
-vim.keymap.set('n', '<leader>rR', function()
-  vim.cmd.RustLsp 'run'
+  vim.cmd.RustLsp { 'run', bang = true }
 end, { silent = true, buffer = bufnr, desc = '[R]un Last Target' })
+vim.keymap.set('n', '<leader>rR', function()
+  vim.cmd.RustLsp 'runnables'
+end, { silent = true, buffer = bufnr, desc = '[R]unnables' })
 vim.keymap.set('n', '<leader>rt', function()
-  vim.cmd.RustLsp 'testables'
-end, { silent = true, buffer = bufnr, desc = '[t]estables' })
-vim.keymap.set('n', '<leader>rT', function()
   vim.cmd.RustLsp { 'testables', bang = true }
-end, { silent = true, buffer = bufnr, desc = '[T]est Previous Target' })
+end, { silent = true, buffer = bufnr, desc = '[t]est Previous Target' })
+vim.keymap.set('n', '<leader>rT', function()
+  vim.cmd.RustLsp 'testables'
+end, { silent = true, buffer = bufnr, desc = '[T]estables' })
