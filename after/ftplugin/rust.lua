@@ -37,3 +37,15 @@ end, { silent = true, buffer = bufnr, desc = '[t]est Previous Target' })
 vim.keymap.set('n', '<leader>rT', function()
   vim.cmd.RustLsp 'testables'
 end, { silent = true, buffer = bufnr, desc = '[T]estables' })
+vim.keymap.set('n', '<leader>rx', function()
+  vim.cmd.RustLsp 'renderDiagnostic'
+end, { silent = true, buffer = bufnr, desc = '[x] Diagnostics' })
+vim.keymap.set('n', '<leader>rX', function()
+  vim.cmd.RustLsp 'relatedDiagnostics'
+end, { silent = true, buffer = bufnr, desc = '[X] Related Diagnostics' })
+vim.keymap.set('n', '<leader>re', function()
+  vim.cmd.RustLsp 'explainError'
+end, { silent = true, buffer = bufnr, desc = '[E]xplain error' })
+vim.keymap.set('n', '<leader>ro', function()
+  vim.cmd.RustLsp 'openDocs'
+end, { silent = true, buffer = bufnr, desc = '[O]pen Docs' })
