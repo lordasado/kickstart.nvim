@@ -51,6 +51,9 @@ return {
 
     -- For `nvim-treesitter` users.
     priority = 49,
+    typst = {
+      enable = false,
+    },
 
     -- For blink.cmp's completion
     -- source
@@ -149,6 +152,9 @@ return {
       max_width = 800,
       integrations = {
         markdown = {
+          enabled = false,
+        },
+        typst = {
           enabled = false,
         },
       },
