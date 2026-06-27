@@ -496,5 +496,19 @@ return {
   {
     'nvim-telescope/telescope-file-browser.nvim',
     dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('telescope').setup {
+        defaults = {
+          preview = {
+            ls_short = true,
+          },
+        },
+        extensions = {
+          file_browser = {
+            display_stat = { date = true, size = true, mode = false },
+          },
+        },
+      }
+    end,
   },
 }
