@@ -38,6 +38,7 @@ return {
               -- Color the symbol icons.
               colored = true,
             },
+            'b:obsidian_status',
           },
           lualine_y = { 'searchcount', { 'selectioncount', icons_enabled = true, icon = { '󰩭', color = { fg = 'plum' } } }, 'progress' },
           lualine_z = { 'location' },
@@ -523,6 +524,14 @@ return {
           name = 'Jeff OS',
           path = '/Users/lord/Documents/Obsidian/Jeff OS',
         },
+      },
+      footer = {
+        enabled = true, -- turn it off
+        -- separator = true, -- turn it off
+        -- separator = "", -- insert a blank line
+        format = '{{backlinks}}   {{properties}}   {{words}}   {{chars}} 󰾹', -- works like the template system
+        -- format = "({{backlinks}} backlinks)", -- limit to backlinks
+        hl_group = '@property', -- Use another hl group
       },
     },
     -- config = function()
