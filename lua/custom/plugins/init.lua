@@ -533,6 +533,11 @@ return {
         -- format = "({{backlinks}} backlinks)", -- limit to backlinks
         hl_group = '@property', -- Use another hl group
       },
+      templates = {
+        folder = 'Templates',
+        date_format = '%Y-%m-%d-%a',
+        time_format = '%H:%M',
+      },
     },
     -- config = function()
     require('telescope').setup {
