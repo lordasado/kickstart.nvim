@@ -467,6 +467,8 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+      vim.keymap.set('n', '<leader>sb', ':Telescope file_browser<CR>', { desc = '[S] Open File [B]rowser' })
+      vim.keymap.set('n', '<space>sB', ':Telescope file_browser path=%:p:h select_buffer=true<CR>', { desc = '[S] [B]rowser: Curent Folder' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
